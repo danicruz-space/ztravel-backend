@@ -1,0 +1,45 @@
+projection;
+strict ( 2 );
+use draft;
+define behavior for Z_C_TRAVEL alias Travel
+{
+  use create;
+  use update;
+  use delete;
+
+  field ( readonly ) TravelId;
+  field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt;
+  field ( readonly ) Status;
+  field ( readonly ) TotalPrice;
+
+  use action acceptTravel;
+  use action bookTravel;
+  use action deductDiscount;
+  use action cancelTravel;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+  use association _Booking { create; with draft; }
+
+}
+
+define behavior for Z_C_BOOKING alias Booking
+{
+  use update;
+  use delete;
+
+  use association _Travel { with draft; }
+  use association _BookSupplement { create; with draft; }
+}
+
+define behavior for Z_C_BOOKSUPPLEMENT alias BookSupplement
+{
+  use update;
+  use delete;
+
+  use association _Booking { with draft; }
+  use association _Travel;
+}

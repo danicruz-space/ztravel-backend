@@ -1,0 +1,85 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName:       'Viagem',
+    typeNamePlural: 'Viagens',
+    imageUrl: 'AgencyAttachment'
+  }
+}
+annotate view Z_C_TRAVEL with
+{
+@UI.facet: [
+  { id: 'idHeaderTravel', type: #DATAPOINT_REFERENCE, position: 10, targetQualifier: 'TravelIdDP', purpose: #HEADER },
+  { id: 'idHeaderStatus', type: #DATAPOINT_REFERENCE, position: 20, targetQualifier: 'StatusDP', purpose: #HEADER },
+  { id: 'idHeaderTotal',  type: #DATAPOINT_REFERENCE, position: 30, targetQualifier: 'TotalPriceDP', purpose: #HEADER },
+
+  { id: 'idGeneralInfo',  type: #COLLECTION,         label: 'Dados Gerais da Viagem', position: 40 },
+  { id: 'idIdentificacao', type: #FIELDGROUP_REFERENCE, parentId: 'idGeneralInfo', label: 'Identificação', position: 10, targetQualifier: 'IdentificacaoFG' },
+  { id: 'idDatas',         type: #FIELDGROUP_REFERENCE, parentId: 'idGeneralInfo', label: 'Datas',          position: 20, targetQualifier: 'DatasFG' },
+  { id: 'idFinanceiro',    type: #FIELDGROUP_REFERENCE, parentId: 'idGeneralInfo', label: 'Financeiro',     position: 30, targetQualifier: 'FinanceiroFG' },
+  { id: 'idOutros',        type: #FIELDGROUP_REFERENCE, parentId: 'idGeneralInfo', label: 'Outros',         position: 40, targetQualifier: 'OutrosFG' }
+]
+
+  @UI: { lineItem:       [ { position: 10 },
+                           { type: #FOR_ACTION, dataAction: 'acceptTravel', label: 'Aceitar Viagem' },
+                           { type: #FOR_ACTION, dataAction: 'bookTravel', label: 'Reservar Viagem' },
+                           { type: #FOR_ACTION, dataAction: 'cancelTravel', label: 'Cancelar Viagem' },
+                           { type: #FOR_ACTION, dataAction: 'deductDiscount', label: 'Aplicar Desconto' } ],
+         identification: [ { position: 10 },
+                           { type: #FOR_ACTION, dataAction: 'cancelTravel', label: 'Cancelar Viagem' },
+                           { type: #FOR_ACTION, dataAction: 'deductDiscount', label: 'Aplicar Desconto' } ],
+         selectionField: [ { position: 10 } ],
+         fieldGroup:    [ { qualifier: 'IdentificacaoFG', position: 10 } ],
+         dataPoint: { title: 'ID da Viagem', qualifier: 'TravelIdDP' } }
+  TravelId;
+
+  @UI: { lineItem:   [ { position: 20 } ],
+         fieldGroup: [ { qualifier: 'IdentificacaoFG', position: 20 } ] }
+  @UI.textArrangement: #TEXT_LAST
+  AgencyId;
+
+  @UI: { lineItem:   [ { position: 30 } ],
+         fieldGroup: [ { qualifier: 'IdentificacaoFG', position: 30 } ] }
+  @UI.textArrangement: #TEXT_LAST
+  CustomerId;
+
+  @UI: { lineItem:   [ { position: 100, criticality: 'StatusCriticality' } ],
+         fieldGroup: [ { qualifier: 'IdentificacaoFG', position: 40, criticality: 'StatusCriticality' } ],
+         dataPoint:  { title: 'Estado', qualifier: 'StatusDP', criticality: 'StatusCriticality' } }
+  @UI.textArrangement: #TEXT_ONLY
+  Status;
+
+  @UI: { fieldGroup: [ { qualifier: 'DatasFG', position: 10 } ] }
+  BeginDate;
+
+  @UI: { lineItem:   [ { position: 50 } ],
+         fieldGroup: [ { qualifier: 'DatasFG', position: 20 } ] }
+  EndDate;
+
+  @UI: { fieldGroup: [ { qualifier: 'FinanceiroFG', position: 10 } ] }
+  CurrencyCode;
+
+  @UI: { fieldGroup: [ { qualifier: 'FinanceiroFG', position: 20 } ] }
+  BookingFee;
+
+  @UI: { lineItem:   [ { position: 80 } ],
+         fieldGroup: [ { qualifier: 'FinanceiroFG', position: 30 } ],
+         dataPoint:  { title: 'Preço Total', qualifier: 'TotalPriceDP' } }
+  TotalPrice;
+
+  @UI: { fieldGroup: [ { qualifier: 'OutrosFG', position: 10 } ] }
+  Description;
+
+  @EndUserText.label: 'Logotipo'
+  @UI.hidden: true
+  AgencyAttachment;
+
+  @UI.hidden: true
+  AgencyMimeType;
+
+  @UI.hidden: true
+  AgencyFilename;
+
+  @UI.hidden: true
+  AgencyName;
+}

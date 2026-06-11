@@ -1,0 +1,53 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName:       'Reserva',
+                typeNamePlural: 'Reservas',
+                title: { type: #STANDARD, value: 'BookingId' } }
+}
+annotate view Z_C_BOOKING with
+{
+  @UI.facet: [ { id:            'idIdentification',
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Dados da Reserva',
+                 position:      10 } ]
+
+  @UI.hidden: true
+  TravelId;
+
+  @EndUserText.label: 'Reserva'
+  @UI: { lineItem:       [ { position: 20, cssDefault.width: '6rem' } ],
+         identification: [ { position: 20 } ] }
+  BookingId;
+
+  @EndUserText.label: 'Data Reserva'
+  @UI: { lineItem:       [ { position: 30, cssDefault.width: '9rem' } ],
+         identification: [ { position: 30 } ] }
+  BookingDate;
+
+  @UI.identification: [ { position: 20 } ]             // Aparece dentro do formulário da Reserva
+  @UI.selectionField: [ { position: 20 } ]
+  CustomerId;
+
+  @EndUserText.label: 'Companhia'
+  @UI: { lineItem:       [ { position: 50, cssDefault.width: '8rem' } ],
+         identification: [ { position: 50 } ] }
+  CarrierId;
+
+  @EndUserText.label: 'Voo'
+  @UI: { lineItem:       [ { position: 60, cssDefault.width: '6rem' } ],
+         identification: [ { position: 60 } ] }
+  ConnectionId;
+
+  @EndUserText.label: 'Data Voo'
+  @UI: { lineItem:       [ { position: 70, cssDefault.width: '9rem' } ],
+         identification: [ { position: 70 } ] }
+  FlightDate;
+
+  @EndUserText.label: 'Preço'
+  @UI: { lineItem:       [ { position: 80, cssDefault.width: '10rem' } ],
+         identification: [ { position: 80 } ] }
+  FlightPrice;
+
+  @UI.hidden: true
+  CurrencyCode;
+}

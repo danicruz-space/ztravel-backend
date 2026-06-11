@@ -1,0 +1,133 @@
+managed implementation in class zbp_i_travel unique;
+strict ( 2 );
+with draft;
+
+define behavior for Z_I_TRAVEL alias Travel
+draft table ztravel_d
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+early numbering
+with unmanaged save
+{
+  create;
+  update;
+  delete;
+  mapping for /dmo/travel
+  {
+    TravelId = travel_id;
+    AgencyId = agency_id;
+    CustomerId = customer_id;
+    BeginDate = begin_date;
+    EndDate = end_date;
+    TotalPrice = total_price;
+    CurrencyCode = currency_code;
+    Description = description;
+    Status = status;
+    CreatedBy = createdby;
+    CreatedAt = createdat;
+    LastChangedBy = lastchangedby;
+    LastChangedAt = lastchangedat;
+  }
+  field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt;
+  field ( readonly ) TotalPrice;
+  field ( readonly ) TravelId;
+  field ( readonly ) BookingFee;
+  field ( readonly ) Status;
+
+  determination setStatusInitial on modify { create; }
+  determination setBookingFee on modify { field AgencyId; create; }
+  determination calculateTotalPrice on save { create; field BookingFee; }
+
+  validation validateDates on save { create; field BeginDate, EndDate; }
+  validation validateAgency on save { create; field AgencyId; }
+  validation validateCustomer on save { create; field CustomerId; }
+  validation validateCurrency on save { create; field CurrencyCode; }
+  validation validateBookingFee on save { create; field BookingFee; }
+
+  action acceptTravel parameter Z_A_TRAVEL_CONFIRM result [1] $self;
+  action bookTravel parameter Z_A_TRAVEL_BOOK_CONFIRM result [1] $self;
+  action deductDiscount parameter Z_A_TRAVEL_DISCOUNT result [1] $self;
+  action cancelTravel parameter Z_A_TRAVEL_CANCEL_CONFIRM result [1] $self;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _Booking { create; with draft; }
+}
+
+define behavior for Z_I_BOOKING alias Booking
+persistent table /dmo/booking
+draft table zbooking_d
+lock dependent by _Travel
+authorization dependent by _Travel
+early numbering
+{
+  update;
+  delete;
+
+  field ( readonly ) TravelId, BookingId, BookingDate, CurrencyCode, FlightPrice;
+  mapping for /dmo/booking corresponding
+  {
+    TravelId = travel_id;
+    BookingId = booking_id;
+    BookingDate = booking_date;
+    CustomerId = customer_id;
+    CarrierId = carrier_id;
+    ConnectionId = connection_id;
+    FlightDate = flight_date;
+    FlightPrice = flight_price;
+    CurrencyCode = currency_code;
+  }
+  association _Travel { with draft; }
+  association _BookSupplement { create; with draft; }
+
+  determination setCurrencyFromTravel on modify { create; }
+  determination setBookingDate on modify { create; }
+  determination setFlightPrice on modify { create; field CarrierId, ConnectionId, FlightDate; }
+  determination calculateTotalPrice on save { create; delete; field FlightPrice; }
+
+  validation validateFlightPrice on save { create; field FlightPrice; }
+  validation validateBookingDate on save { create; field BookingDate; }
+  validation validateFlightDate on save { create; field FlightDate; }
+  validation validateCustomer on save { create; field CustomerId; }
+  validation validateCurrency on save { create; field CurrencyCode; }
+  validation validateFlight on save { create; field CarrierId, ConnectionId, FlightDate; }
+  validation validateTravelStatus on save { create; update; }
+
+
+}
+
+define behavior for Z_I_BOOKSUPPLEMENT alias BookSupplement
+persistent table /dmo/book_suppl
+draft table zbooksuppl_d
+lock dependent by _Travel
+authorization dependent by _Travel
+early numbering
+{
+  update;
+  delete;
+
+  field ( readonly ) TravelId, BookingId, BookingSupplementId, Price, CurrencyCode;
+  mapping for /dmo/book_suppl
+  {
+    TravelId = travel_id;
+    BookingId = booking_id;
+    BookingSupplementId = booking_supplement_id;
+    SupplementId = supplement_id;
+    Price = price;
+    CurrencyCode = currency_code;
+  }
+
+  determination setSupplementPrice on modify { create; field SupplementId; }
+  determination calculateTotalPrice on modify { create; field SupplementId; }
+
+  validation validateSupplement on save { create; field SupplementId; }
+
+  association _Booking { with draft; }
+  association _Travel;
+}

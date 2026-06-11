@@ -1,0 +1,9 @@
+@EndUserText.label: 'Service Definition de Travel'
+define service Z_UI_TRAVEL_V4 {
+  expose Z_C_TRAVEL;
+  expose Z_C_BOOKING as Booking;
+  expose Z_C_BOOKSUPPLEMENT as BookingSupplement;
+  expose Z_I_CONN_GEO as Connection;
+  expose Z_I_AIRPORT_GEO as Airport;
+  expose Z_I_SUPPL_CAT as SupplCatalog;
+}

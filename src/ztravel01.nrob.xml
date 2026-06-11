@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_NROB" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <ATTRIBUTES>
+    <OBJECT>ZTRAVEL01</OBJECT>
+    <DOMLEN>/DMO/TRAVEL_ID</DOMLEN>
+    <PERCENTAGE>80.0</PERCENTAGE>
+    <BUFFER>X</BUFFER>
+    <NOIVBUFFER>00000010</NOIVBUFFER>
+    <UNAME>DANIC</UNAME>
+    <UDATE>2026-04-20</UDATE>
+    <UTIME>11:31:00</UTIME>
+   </ATTRIBUTES>
+   <TEXT>
+    <LANGU>P</LANGU>
+    <OBJECT>ZTRAVEL01</OBJECT>
+    <TXT>Definir ID para &quot;TravelId</TXT>
+    <TXTSHORT>Definir ID para &quot;...</TXTSHORT>
+   </TEXT>
+  </asx:values>
+ </asx:abap>
+</abapGit>

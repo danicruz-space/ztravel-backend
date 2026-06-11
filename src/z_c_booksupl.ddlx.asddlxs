@@ -1,0 +1,37 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName:       'Suplemento',
+                typeNamePlural: 'Suplementos',
+                title:          { type: #STANDARD, value: 'BookingSupplementId' } }
+}
+
+annotate view Z_C_BOOKSUPPLEMENT with
+{
+  @UI.facet: [ { id:       'idIdentification',
+                 type:     #IDENTIFICATION_REFERENCE,
+                 label:    'Dados do Suplemento',
+                 position: 10 } ]
+
+  @EndUserText.label: 'Suplemento'
+  @UI: { lineItem:       [ { position: 10, cssDefault.width: '7rem' } ],
+         identification: [ { position: 10 } ] }
+  BookingSupplementId;
+
+  @EndUserText.label: 'Produto'
+  @UI: { lineItem:       [ { position: 20, cssDefault.width: '10rem' } ],
+         identification: [ { position: 20 } ] }
+  SupplementId;
+
+  @EndUserText.label: 'Preço'
+  @UI: { lineItem:       [ { position: 30, cssDefault.width: '10rem' } ],
+         identification: [ { position: 30 } ] }
+  Price;
+
+  @UI.hidden: true
+  CurrencyCode;
+  
+  @EndUserText.label: 'Foto'
+  @UI.lineItem: [ { position: 5, label: 'Foto' } ]
+  SupplementAttachment;
+
+}

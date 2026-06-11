@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZMSG_TRAVEL</ARBGB>
+    <MASTERLANG>P</MASTERLANG>
+    <STEXT>Mensagens de erros para validations de Travel</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>A data de início é obrigatória.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>A data de fim é obrigatório</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Data de fim não pode ser antes da Data de início.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>A data de início não pode ser no passado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>A data de fim não pode ser no passado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>A agência é obrigatória.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>A agência &amp;1 não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Customer ID é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>O cliente &amp;1 não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>O tipo de Moeda é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>O tipo de Moeda &amp;1 não existe.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Impossível aceitar, o Satus da viagem: &amp;1.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>O Desconto deve ser de 0 a 100.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>A viagem já foi cancelada.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Booking fee impossível de encontrar.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Transição da Viagem de &amp;1 para &amp;2 é impossível.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Preço de Avião tem que ser maior que 0.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Dia do Booking é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>Dia do Booking não pode ser no passado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Dia do Voo obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>Dia do Voo não pode ser no passado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Dia do Voo &amp;1 tem que estar entre &amp;2 e &amp;3</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>O voo não foi encontrado.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>Preço &amp;1 deve ser maior que 0.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>Supplement é obrigatório.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>P</SPRSL>
+     <ARBGB>ZMSG_TRAVEL</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>Supplement &amp;1 não existe.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
