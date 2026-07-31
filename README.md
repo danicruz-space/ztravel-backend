@@ -36,7 +36,7 @@ O código está serializado no formato **abapGit**, na pasta `src/`.
 
 ## Frontend
 
-O frontend em SAP Fiori Elements encontra-se no repositório: [ztravel-app](github.com/danicruz-space/ztravel-frontend)
+O frontend em SAP Fiori Elements encontra-se no repositório: [ztravel-app](github.com/DaniC3101/ztravel-frontend)
 
 ## Autor
 
